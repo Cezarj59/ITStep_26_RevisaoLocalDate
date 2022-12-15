@@ -1,14 +1,9 @@
 package classroom_26.services;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import static javax.print.attribute.Size2DSyntax.MM;
 
 public class Receber {
 
@@ -19,23 +14,24 @@ public class Receber {
     }
 
     public static LocalDate data() {
-
+        LocalDate parseDate = null;
         while (true) {
 
             try {
                 Scanner leia = new Scanner(System.in);
                 String dataRecebida = leia.nextLine();
 
-                DateTimeFormatter formatoBr = DateTimeFormatter.ofPattern("aaaa MM dd");
-                
-                LocalDate parsedDate = LocalDate.parse(dataRecebida, formatoBr);
+                DateTimeFormatter formatoBr = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-                return parsedDate;
+                parseDate = LocalDate.parse(dataRecebida, formatoBr);
+
+                break;
             } catch (Exception ex) {
-                ex.printStackTrace();
+                System.out.println("Tente novamente,no seguinte formato: dd/MM/aaaa");
             }
         }
 
+        return parseDate;
     }
 
     public static int inteiro() {

@@ -1,5 +1,6 @@
 package classroom_26.views;
 
+import classroom_26.controllers.BoletoController;
 import classroom_26.services.Receber;
 
 public class Menu {
@@ -20,7 +21,7 @@ public class Menu {
                     System.exit(0);
                     break;
                 case 1:
-                    System.out.println("Em desenvolvimento");
+                    cadastrar();
                     break;
                 case 2:
                     consultar();
@@ -31,6 +32,28 @@ public class Menu {
             }
         }
 
+    }
+
+    private static void cadastrar() {
+        System.out.println("\n-----------------------------");
+        System.out.println("----------CADASTRO-----------");
+        System.out.println("-----------------------------\n");
+
+        System.out.println("(1) Boleto");
+        System.out.println("() ");
+        System.out.println("() ");
+        System.out.print("Informe a opção desejada: ");
+
+        switch (Receber.inteiro()) {
+
+            case 1:
+                BoletoController.addBoleto(BoletoController.cadastrar());
+                break;
+
+            default:
+                System.out.println("\nOpção Invalida!!!\n");
+                ;
+        }
     }
 
     private static void consultar() {
@@ -69,6 +92,4 @@ public class Menu {
         }
     }
 
-
-   
 }

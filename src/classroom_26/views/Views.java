@@ -12,7 +12,18 @@ public class Views {
         ArrayList<Boleto> lista = BoletoController.getAll();
 
         for (Boleto b : lista) {
-            System.out.println(b.toString());
+            if (b.getData().isAfter(LocalDate.now())) {
+                System.out.println(b.toString());
+                System.out.println("Total de Dias para o Vencimento: " + contaDias(b.getData()));
+                System.out.println("Periodo para o Vencimento: " + periodoData(b.getData()));
+                System.out.println("-------------------------");
+            } else {
+                System.out.println(b.toString());
+                System.out.println("Total de Dias em atraso: " + contaDias(b.getData()));
+                System.out.println("Periodo em Atraso: " + periodoData(b.getData()));
+                System.out.println("-------------------------");
+            }
+
         }
 
     }

@@ -30,7 +30,8 @@ public class BoletoController {
             PreparedStatement statement = conn.prepareStatement(sql);
 
             statement.setDouble(1, g.getValor());
-            statement.setDate(2, java.sql.Date.valueOf(g.getData()));//Converte Localdate para date
+            statement.setDate(2, java.sql.Date.valueOf(g.getData()));//Converte Localdate para date           
+            // statement.setString(2, g.getData().toString());//Converte Localdate para String
 
             if (statement.executeUpdate() > 0) {
                 System.out.println("\nBoleto Cadastrado com Sucesso!!!\n");

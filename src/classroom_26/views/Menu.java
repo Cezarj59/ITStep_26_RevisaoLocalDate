@@ -40,8 +40,8 @@ public class Menu {
         System.out.println("-----------------------------\n");
 
         System.out.println("(1) Boleto");
-        System.out.println("() ");
-        System.out.println("() ");
+//        System.out.println("() ");
+//        System.out.println("() ");
         System.out.print("Informe a opção desejada: ");
 
         switch (Receber.inteiro()) {
